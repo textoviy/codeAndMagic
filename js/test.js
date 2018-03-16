@@ -1,4 +1,4 @@
-
+/*
 var a = [1, 80, 30, 2, 1000, 5]
 
   var getMaxElement = function (arr) {
@@ -14,3 +14,7 @@ var a = [1, 80, 30, 2, 1000, 5]
   };
 
   document.write(getMaxElement(a));
+  */
+ 
+ var randomNum = +(Math.random() * 8).toFixed(0)
+ document.write(randomNum);

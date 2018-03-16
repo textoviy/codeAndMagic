@@ -142,8 +142,8 @@ for (var i = 0; i < names.length; i++) {
 	// Пишем мс.
 
 	createText(
-		"~" + Math.ceil(times[i] / 1000) + " мс",
-		statisticsBlockX + barGap * i + barWidth * (i + 1) - 4,
+		"~" + Math.ceil(times[i] / 1000) + " с",
+		statisticsBlockX + barGap * i + barWidth * (i + 1) - 1,
 		barY + barHeight
 		);
 }
