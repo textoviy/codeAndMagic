@@ -14,11 +14,23 @@ var eyesColors = ["black", "red", "blue", "yellow", "green"];
 
 var wizards = [];
 
-var setup = document.querySelector(".setup");
+
+
+var similarListElement = document.querySelector(".setup-similar-list");
+
+var similarWizardsTemplate = document.querySelector("#similar-wizard-template").content;
+
+
+
 
 // Убираем .hidden
+// 
+ var setup = document.querySelector(".setup");
 
 setup.classList.remove("hidden");
+
+document.querySelector(".setup-similar").classList.remove("hidden");
+
 
 // Функция получения рандомного индекса заданного массива
 
@@ -40,6 +52,34 @@ for (var i = 0; i < 4; i++) {
 		eyesColor: getRandomArrIndex(eyesColors)
 	});
 }
+
+var fragment = document.createDocumentFragment();
+
+var renderWizard = function (wizard) {
+	var wizardElement = similarWizardsTemplate.cloneNode(true);
+
+	wizardElement.querySelector(".setup-similar-label").textContent = wizards[i].name;
+ 	wizardElement.querySelector(".wizard-coat").style.fill = wizards[i].coatColor;
+ 	wizardElement.querySelector(".wizard-eyes").style.fill = wizards[i].eyesColor;
+
+ 	return wizardElement;
+}
+for (var i = 0; i < wizards.length; i++) {
+	fragment.appendChild(renderWizard(wizards[i]));
+}
+similarListElement.appendChild(fragment);
+
+
+// for (var i = 0; i < wizards.length; i++) {
+// 	var wizardElement = similarWizardsTemplate.cloneNode(true);
+
+// 	wizardElement.querySelector(".setup-similar-label").textContent = wizards[i].name;
+// 	wizardElement.querySelector(".wizard-coat").style.fill = wizards[i].coatColor;
+// 	wizardElement.querySelector(".wizard-eyes").style.fill = wizards[i].eyesColor;
+
+// 	similarListElement.appendChild(wizardElement)
+
+// }
 
 document.write(wizards[0].name);
 
